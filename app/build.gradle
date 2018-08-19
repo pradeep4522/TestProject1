@@ -4,16 +4,24 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.testproject.testproject"
-        minSdkVersion 16
+        minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
     buildTypes {
+
+        debug {
+            it.buildConfigField('String','SERVER_URL', SERVEL_URL)
+        }
+
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            it.buildConfigField('String','SERVER_URL', SERVEL_URL)
         }
     }
 }
